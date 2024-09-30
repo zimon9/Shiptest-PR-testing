@@ -14,7 +14,7 @@
 	var/full_speed = TRUE // If the jetpack will have a speedboost in space/nograv or not
 	var/datum/effect_system/trail_follow/ion/ion_trail
 
-/obj/item/tank/jetpack/Initialize()
+/obj/item/tank/jetpack/Initialize() //meow
 	. = ..()
 	ion_trail = new
 	ion_trail.auto_process = FALSE
