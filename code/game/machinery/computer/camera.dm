@@ -1,4 +1,4 @@
-/obj/machinery/computer/security
+/obj/machinery/computer/security //this should be repathed to being a camera console, not a security console. Later, though.
 	name = "security camera console"
 	desc = "Used to access the various cameras connected to a local network."
 	icon_screen = "cameras"
@@ -6,7 +6,7 @@
 	circuit = /obj/item/circuitboard/computer/security
 	light_color = COLOR_SOFT_RED
 
-	var/list/network = list("ss13")
+	var/list/network = list("default") //default network name. Loads this on startup.
 	var/obj/machinery/camera/active_camera
 	var/list/concurrent_users = list()
 
@@ -192,6 +192,9 @@
 		if(tempnetwork.len)
 			D["[C.c_tag]"] = C
 	return D
+
+/obj/machinery/computer/security/proc/change_camera_network()
+	network = list("test_network")
 
 // SECURITY MONITORS
 
