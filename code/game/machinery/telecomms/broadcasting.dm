@@ -183,7 +183,7 @@
 			var/name = data["name"]
 			var/list/log_details = list()
 			log_details["name"] = "[name]▸"
-			log_details["message"] = "\"[html_decode(message)]\""
+			log_details["message"] = "\"[html_decode(message)]\"" //The problem here is that the message is being recorded into the log, and not the say modifier. Code will need to be written to catch it from mob_say.dm and living_say.dm
 			log_details["time"] = station_time_timestamp()
 			radio.loglist.Insert(1, list(log_details))
 			radio.log_trim()
