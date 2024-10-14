@@ -345,7 +345,7 @@
 		O.use(1)
 		return
 
-	if(istype(O, /obj/item/extinguisher))
+	if(istype(O, /obj/item/extinguisher) && !(istype(O, /obj/item/extinguisher/advanced)))
 		var/obj/item/extinguisher/EX = O
 		var/safety_save = EX.safety
 		EX.safety = TRUE
@@ -356,7 +356,13 @@
 			EX.safety = safety_save
 			return 1
 		else
-			return ..()
+			to_chat(user, "<span class='warning'>\The [EX] is already full!</span>")
+			return 1
+	else
+		var/obj/item/extinguisher/EX = O
+		if(istype(O, /obj/item/extinguisher/advanced))
+			to_chat(user, "<span class='warning'>\The [EX] cannot be refilled with water!</span>")
+			return 0
 
 	if(!istype(O))
 		return
