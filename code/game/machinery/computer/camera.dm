@@ -195,6 +195,7 @@
 
 /obj/machinery/computer/security/proc/change_camera_network()
 	network = list("test_network")
+	//you can see how the orbit menu takes input and use that system
 
 // SECURITY MONITORS
 
