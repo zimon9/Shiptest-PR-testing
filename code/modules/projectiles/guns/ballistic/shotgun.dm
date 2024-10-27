@@ -348,9 +348,9 @@ EMPTY_GUN_HELPER(shotgun/doublebarrel)
 	recoil = 3 //or not
 	recoil_unwielded = 5
 	item_state = "dshotgun_sawn"
-	default_ammo_type = /obj/item/ammo_box/magazine/internal/shot/dual/lethal
+	default_ammo_type = /obj/item/ammo_box/magazine/internal/shot/dual
 	allowed_ammo_types = list(
-		/obj/item/ammo_box/magazine/internal/shot/dual/lethal,
+		/obj/item/ammo_box/magazine/internal/shot/dual,
 	)
 
 /obj/item/gun/ballistic/shotgun/doublebarrel/roumain
