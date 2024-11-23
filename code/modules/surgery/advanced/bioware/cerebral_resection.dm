@@ -22,9 +22,7 @@
 /datum/surgery_step/resect_cerebrum
 	name = "resect cerebrum"
 	implements = list(
-		/obj/item/scalpel/augment = 75,
-		/obj/item/scalpel/advanced = 60,
-		TOOL_SCALPEL = 45,
+		TOOL_SCALPEL = 90,
 		/obj/item/melee/knife = 30)
 	time = 125
 	experience_given = MEDICAL_SKILL_ADVANCED
