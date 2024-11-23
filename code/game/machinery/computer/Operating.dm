@@ -10,7 +10,7 @@
 
 	var/obj/structure/table/optable/table
 	var/obj/machinery/stasis/sbed
-	var/list/advanced_surgeries = list(/datum/surgery/healing/brute/upgraded, /datum/surgery/healing/burn/upgraded, /datum/surgery/healing/combo/upgraded, /datum/surgery/advanced/bioware/repair_cortex)
+	var/list/advanced_surgeries = list(/datum/surgery/healing/brute/upgraded, /datum/surgery/healing/burn/upgraded, /datum/surgery/healing/combo/upgraded, /datum/surgery/advanced/bioware/cerebral_resection)
 	var/datum/techweb/linked_techweb
 	light_color = LIGHT_COLOR_BLUE
 
