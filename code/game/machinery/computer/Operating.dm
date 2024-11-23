@@ -10,7 +10,7 @@
 
 	var/obj/structure/table/optable/table
 	var/obj/machinery/stasis/sbed
-	var/list/advanced_surgeries = list(/datum/surgery/healing/brute/upgraded, /datum/surgery/healing/burn/upgraded, /datum/surgery/healing/combo/upgraded, /datum/surgery/hepatectomy, /datum/surgery/lobectomy, /datum/surgery/advanced/bioware/cerebral_resection)
+	var/list/advanced_surgeries = list(/datum/surgery/healing/brute/upgraded, /datum/surgery/healing/burn/upgraded, /datum/surgery/healing/combo/upgraded, /datum/surgery/stomach_pump, /datum/surgery/eye_surgery, /datum/surgery/coronary_bypass, /datum/surgery/hepatectomy, /datum/surgery/lobectomy, /datum/surgery/gastrectomy, /datum/surgery/advanced/bioware/cerebral_resection)
 	var/datum/techweb/linked_techweb
 	light_color = LIGHT_COLOR_BLUE
 

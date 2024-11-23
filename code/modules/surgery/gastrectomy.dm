@@ -37,7 +37,7 @@
 
 /datum/surgery_step/gastrectomy/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	var/mob/living/carbon/human/H = target
-	H.setOrganLoss(ORGAN_SLOT_STOMACH, 10) // Stomachs have a threshold for being able to even digest food, so I might tweak this number
+	H.setOrganLoss(ORGAN_SLOT_STOMACH, 25) // Stomachs have a threshold for being able to even digest food, so I might tweak this number
 	display_results(user, target, "<span class='notice'>You successfully remove the damaged part of [target]'s stomach.</span>",
 		"<span class='notice'>[user] successfully removes the damaged part of [target]'s stomach.</span>",
 		"<span class='notice'>[user] successfully removes the damaged part of [target]'s stomach.</span>")
