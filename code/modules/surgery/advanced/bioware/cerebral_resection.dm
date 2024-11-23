@@ -58,7 +58,7 @@
 
 /datum/surgery_step/apply_synaptizine/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
 	for(var/datum/reagent/A in tool.reagents.reagent_list)
-		if (A == /datum/reagent/medicine/synaptizine && !(A.volume < 5))
+		if (istype(A, /datum/reagent/medicine/synaptizine) && !(A.volume < 5))
 			A.volume -= 5
 		else
 			display_results(user, target, "<span class='warning'>You do not have enough synaptizine to complete this procedure!</span>")
