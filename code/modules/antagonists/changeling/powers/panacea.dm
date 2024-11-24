@@ -43,7 +43,7 @@
 
 	if(iscarbon(user))
 		var/mob/living/carbon/C = user
-		C.cure_all_traumas(TRAUMA_RESILIENCE_LOBOTOMY)
+		C.cure_all_traumas(TRAUMA_RESILIENCE_CEREBRAL_RESECTION)
 
 	if(isliving(user))
 		var/mob/living/L = user

@@ -1,6 +1,6 @@
-/datum/surgery/advanced/lobotomy
+/datum/surgery/lobotomy
 	name = "Lobotomy"
-	desc = "An invasive surgical procedure which guarantees removal of almost all brain traumas, but might cause another permanent trauma in return."
+	desc = "An invasive procedure that does nothing but cause brain damage and give a permanent trauma."
 	steps = list(
 	/datum/surgery_step/incise,
 	/datum/surgery_step/retract_skin,
@@ -13,7 +13,7 @@
 	possible_locs = list(BODY_ZONE_HEAD)
 	requires_bodypart_type = 0
 
-/datum/surgery/advanced/lobotomy/can_start(mob/user, mob/living/carbon/target)
+/datum/surgery/lobotomy/can_start(mob/user, mob/living/carbon/target)
 	if(!..())
 		return FALSE
 	var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
@@ -49,9 +49,7 @@
 	display_results(user, target, "<span class='notice'>You succeed in lobotomizing [target].</span>",
 			"<span class='notice'>[user] successfully lobotomizes [target]!</span>",
 			"<span class='notice'>[user] completes the surgery on [target]'s brain.</span>")
-	target.cure_all_traumas(TRAUMA_RESILIENCE_LOBOTOMY)
-	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/brainwashed))
-		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
+	B.applyOrganDamage(80)
 	switch(rand(1,3))//Now let's see what hopefully-not-important part of the brain we cut off
 		if(1)
 			target.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_MAGIC)

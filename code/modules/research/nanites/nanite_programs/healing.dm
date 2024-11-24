@@ -205,7 +205,7 @@
 	host_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, -2)
 	if(iscarbon(host_mob) && prob(10))
 		var/mob/living/carbon/C = host_mob
-		C.cure_trauma_type(resilience = TRAUMA_RESILIENCE_LOBOTOMY)
+		C.cure_trauma_type(resilience = TRAUMA_RESILIENCE_CEREBRAL_RESECTION)
 
 /datum/nanite_program/defib
 	name = "Defibrillation"

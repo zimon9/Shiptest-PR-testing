@@ -196,7 +196,7 @@
 			switch(B.resilience)
 				if(TRAUMA_RESILIENCE_SURGERY)
 					trauma_desc += "severe "
-				if(TRAUMA_RESILIENCE_LOBOTOMY)
+				if(TRAUMA_RESILIENCE_CEREBRAL_RESECTION)
 					trauma_desc += "deep-rooted "
 				if(TRAUMA_RESILIENCE_MAGIC, TRAUMA_RESILIENCE_ABSOLUTE)
 					trauma_desc += "permanent "

@@ -42,7 +42,9 @@
 		"<span class='notice'>[user] finishes resecting away [target]'s damaged cerebral tissue!</span>")
 	target.cure_all_traumas(TRAUMA_RESILIENCE_BASIC)
 	target.cure_all_traumas(TRAUMA_RESILIENCE_SURGERY)
-	target.cure_all_traumas(TRAUMA_RESILIENCE_LOBOTOMY)
+	target.cure_all_traumas(TRAUMA_RESILIENCE_CEREBRAL_RESECTION)
+	if(target.mind && target.mind.has_antag_datum(/datum/antagonist/brainwashed))
+		target.mind.remove_antag_datum(/datum/antagonist/brainwashed)
 	return ..()
 
 /datum/surgery_step/resect_cerebrum/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
@@ -68,7 +70,7 @@
 /datum/surgery_step/apply_synaptizine/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, "<span class='notice'>You finish applying synaptizine to [target]'s cerebral cortex. The cortex starts looking healthier before your eyes. The patient's prognosis has improved.</span>",
 		"<span class='notice'>[user] finishes applying a paste to [target]'s resected cerebral tissue!</span>")
-	target.setOrganDamage(ORGAN_SLOT_BRAIN, 10)
+	target.setOrganLoss(ORGAN_SLOT_BRAIN, 10)
 	return ..()
 
 /datum/surgery_step/apply_synaptizine/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
