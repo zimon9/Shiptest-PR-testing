@@ -3375,7 +3375,7 @@
 #include "code\modules\surgery\tools.dm"
 #include "code\modules\surgery\tympanoplasty.dm"
 #include "code\modules\surgery\advanced\brainwashing.dm"
-#include "code\modules\surgery\advanced\lobotomy.dm"
+#include "code\modules\surgery\lobotomy.dm"
 #include "code\modules\surgery\advanced\necrotic_revival.dm"
 #include "code\modules\surgery\advanced\pacification.dm"
 #include "code\modules\surgery\advanced\viral_bonding.dm"
