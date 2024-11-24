@@ -49,7 +49,9 @@
 	display_results(user, target, "<span class='notice'>You succeed in lobotomizing [target].</span>",
 			"<span class='notice'>[user] successfully lobotomizes [target]!</span>",
 			"<span class='notice'>[user] completes the surgery on [target]'s brain.</span>")
-	B.applyOrganDamage(80)
+	var/obj/item/organ/brain/B = target.getorganslot(ORGAN_SLOT_BRAIN)
+	if(B)
+		B.applyOrganDamage(80)
 	switch(rand(1,3))//Now let's see what hopefully-not-important part of the brain we cut off
 		if(1)
 			target.gain_trauma_type(BRAIN_TRAUMA_MILD, TRAUMA_RESILIENCE_MAGIC)
