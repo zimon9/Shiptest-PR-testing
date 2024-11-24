@@ -68,7 +68,7 @@
 /datum/surgery_step/apply_synaptizine/success(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
 	display_results(user, target, "<span class='notice'>You finish applying synaptizine to [target]'s cerebral cortex. The cortex starts looking healthier before your eyes. The patient's prognosis has improved.</span>",
 		"<span class='notice'>[user] finishes applying a paste to [target]'s resected cerebral tissue!</span>")
-	target.adjustOrganLoss(ORGAN_SLOT_BRAIN, -60)
+	target.setOrganDamage(ORGAN_SLOT_BRAIN, 10)
 	return ..()
 
 /datum/surgery_step/apply_synaptizine/failure(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
