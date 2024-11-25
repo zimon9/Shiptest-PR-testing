@@ -10,7 +10,7 @@
 
 	var/obj/structure/table/optable/table
 	var/obj/machinery/stasis/sbed
-	var/list/advanced_surgeries = list(/datum/surgery/healing/brute/upgraded, /datum/surgery/healing/burn/upgraded, /datum/surgery/healing/combo/upgraded, /datum/surgery/stomach_pump, /datum/surgery/eye_globe_reconstruction, /datum/surgery/tympanoplasty, /datum/surgery/coronary_bypass, /datum/surgery/hepatectomy, /datum/surgery/pulmonary_resection, /datum/surgery/esophagojejunostomy, /datum/surgery/advanced/bioware/cerebral_resection)
+	var/list/advanced_surgeries = list()
 	var/datum/techweb/linked_techweb
 	light_color = LIGHT_COLOR_BLUE
 
@@ -129,6 +129,7 @@
 			data["patient"]["statstate"] = "bad"
 	data["patient"]["health"] = patient.health
 	data["patient"]["blood_type"] = patient.dna.blood_type.name
+	data["patient"]["blood_volume"] = patient.blood_volume
 	data["patient"]["maxHealth"] = patient.maxHealth
 	data["patient"]["minHealth"] = HEALTH_THRESHOLD_DEAD
 	data["patient"]["bruteLoss"] = patient.getBruteLoss()

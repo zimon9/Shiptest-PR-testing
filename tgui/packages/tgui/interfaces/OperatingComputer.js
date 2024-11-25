@@ -69,6 +69,12 @@ const PatientStateView = (props, context) => {
             <LabeledList.Item label="Blood Type">
               {patient.blood_type}
             </LabeledList.Item>
+            <LabeledList.Item label="Blood Volume">
+              {(patient.blood_volume) + " cl"}
+            </LabeledList.Item>
+            <LabeledList.Item label="">
+              {(((patient.blood_volume)/560)*100).toFixed(1) + "%"}
+            </LabeledList.Item>
             <LabeledList.Item label="Health">
               <ProgressBar
                 value={patient.health}
