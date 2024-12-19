@@ -84,3 +84,8 @@
 	pixel_shift = 24
 	inverse = FALSE
 	custom_materials = list(/datum/material/iron = 75)
+
+/obj/machinery/light_switch/screwdriver_act(mob/living/user, obj/item/screwdriver/I)
+	if(do_after(user, 1 SECONDS, src))
+		var/obj/item/wallframe/light_switch/unscrewed = new (get_turf(user))
+		qdel(src)
