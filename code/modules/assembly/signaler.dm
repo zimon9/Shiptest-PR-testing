@@ -40,6 +40,13 @@
 		return ..()
 	return UI_CLOSE
 
+/obj/item/assembly/signaler/unique_action(mob/user)
+	signal()
+	playsound(user, 'sound/items/flashlight_off.ogg', 30, FALSE)
+	//add a line that pops up in the chat to indicate that someone sends a signal -- and have the animation play, as well
+	//this should only activate if the safety is disabled, which will be represented by the sprites
+	//have a light glow when the signal is sent, too
+
 /obj/item/assembly/signaler/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
