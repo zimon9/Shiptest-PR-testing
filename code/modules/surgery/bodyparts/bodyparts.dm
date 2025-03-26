@@ -841,7 +841,10 @@
 		if(HAS_TRAIT(owner, TRAIT_ANALGESIA))
 			to_chat(owner, span_notice("[pick("You feel something shifting inside your [name].", "There is something moving inside [name].", "Something inside your [name] slips.")]"))
 		else
-			to_chat(owner, "<span class='danger'>[pick("You feel broken bones moving around in your [name]!", "There are broken bones moving around in your [name]!", "The bones in your [name] are moving around!")]</span>")
+			if(owner.m_intent == MOVE_INTENT_RUN)
+				to_chat(owner, "<span class='danger'>[pick("You feel broken bones moving around in your [name]! Try moving a little more slowly.", "There are broken bones moving around in your [name]! Try not to let it jostle around.", "The bones in your [name] are moving around! Try slowing down.")]</span>")
+			else
+				to_chat(owner, "<span class='danger'>[pick("You feel broken bones moving around in your [name]!", "There are broken bones moving around in your [name]!", "The bones in your [name] are moving around!")]</span>")
 		receive_damage(rand(1, 3))
 		//1-3 damage every 20 tiles for every broken bodypart.
 		//A single broken bodypart will give you an average of 650 tiles to run before you get a total of 100 damage and fall into crit
