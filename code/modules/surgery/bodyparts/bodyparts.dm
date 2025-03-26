@@ -842,7 +842,7 @@
 			to_chat(owner, span_notice("[pick("You feel something shifting inside your [name].", "There is something moving inside [name].", "Something inside your [name] slips.")]"))
 		else
 			if(owner.m_intent == MOVE_INTENT_RUN)
-				to_chat(owner, "<span class='danger'>[pick("You feel broken bones moving around in your [name]! Try moving a little more slowly.", "There are broken bones moving around in your [name]! Try not to let it jostle around.", "The bones in your [name] are moving around! Try slowing down.")]</span>")
+				to_chat(owner, "<span class='danger'>[pick("You feel broken bones moving around in your [name]! Try moving a little more slowly.", "There are broken bones moving around in your [name]! Try not to let them jostle around.", "The bones in your [name] are moving around! Try slowing down.")]</span>")
 			else
 				to_chat(owner, "<span class='danger'>[pick("You feel broken bones moving around in your [name]!", "There are broken bones moving around in your [name]!", "The bones in your [name] are moving around!")]</span>")
 		receive_damage(rand(1, 3))
