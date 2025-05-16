@@ -288,7 +288,7 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 /datum/admin_help/proc/message_no_recipient(msg)
 	var/ref_src = "[REF(src)]"
 	//Message to be sent to all admins
-	var/admin_msg = span_adminnotice("[span_adminhelp("Ticket [ticket_href("#[id]", ref_src)]")]<b>: [linked_reply_name(ref_src)] [full_monty(ref_src)]:</b> [span_linkify("[keywords_lookup(msg)]")]")
+	var/admin_msg = fieldset_block("[span_adminhelp("Ticket [ticket_href("#[id]", ref_src)]")]", "<b>: [linked_reply_name(ref_src)] [full_monty(ref_src)]:</b> [span_linkify("[keywords_lookup(msg)]")]", "boxed_message red_box")
 
 	add_interaction("<font color='red'>[linked_reply_name(ref_src)]: [msg]</font>")
 	log_admin_private("Ticket #[id]: [key_name(initiator)]: [msg]")
