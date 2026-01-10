@@ -65,7 +65,7 @@
 	if(trickwine_examine_text)
 		return span_notice(trickwine_examine_text)
 	else
-		return span_notice("SUBJECTPRONOUN seems to be affected by [src].")
+		return span_notice("[usr.pronouns] seems to be affected by [src].")
 
 //////////
 // BUFF //
@@ -175,7 +175,7 @@
 
 /datum/status_effect/trickwine/buff/ash
 	id = "ash_wine_buff"
-	trickwine_examine_text = "SUBJECTPRONOUN is filled with energy and devotion! Their eyes are dialated and they are twitching."
+	trickwine_examine_text = "[usr.pronouns] is filled with energy and devotion! Their eyes are dialated and they are twitching."
 	//message_apply_others =  ""
 	//message_apply_self = ""
 	//message_remove_others = ""
@@ -184,7 +184,7 @@
 
 /datum/status_effect/trickwine/debuff/ash
 	id = "ash_wine_debuff"
-	trickwine_examine_text = "SUBJECTPRONOUN is covered in a thin layer of ash. They are twitching and jittery."
+	trickwine_examine_text = "[usr.pronouns] is covered in a thin layer of ash. They are twitching and jittery."
 	//message_apply_others =  ""
 	//message_apply_self = ""
 	//message_remove_others = ""
@@ -281,7 +281,7 @@
 
 /datum/status_effect/trickwine/buff/shock
 	id = "shock_wine_buff"
-	trickwine_examine_text = "SUBJECTPRONOUN seems to be crackling with energy."
+	trickwine_examine_text = "[usr.pronouns] seems to be crackling with energy."
 	message_apply_others =  "seems to be crackling with energy!"
 	message_apply_self = "You feel like a bolt of lightning!"
 	message_remove_others = "has lost their statis energy."
