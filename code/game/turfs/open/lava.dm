@@ -74,7 +74,7 @@
 
 /turf/open/lava/Entered(atom/movable/arrived)
 	. = ..()
-	if(!immerse_added && !is_type_in_typecache(arrived, GLOB.immerse_ignored_movable))
+	if((!immerse_added && !is_type_in_typecache(arrived, GLOB.immerse_ignored_movable)) && !(locate(/obj/structure/lattice/lava, src)))
 		AddElement(/datum/element/immerse, "immerse", 215)
 		immerse_added = TRUE
 	if(burn_stuff(arrived))
