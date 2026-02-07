@@ -58,26 +58,6 @@
 
 	var/datum/action/innate/tail_hold/tail_action
 
-	var/static/list/allergy_reactions = list(
-		"Your beak itches.",
-		"Your stomach churns.",
-		"Your tail flicks on its own.",
-		"Your quills feel heavy.",
-		"Your lungs struggle to fill."
-		)
-
-	var/static/list/allergic_to = typecacheof(
-		list(
-			/datum/reagent/medicine/ephedrine,
-			/datum/reagent/medicine/atropine,
-			/datum/reagent/medicine/epinephrine,
-			/datum/reagent/medicine/mannitol,
-			/datum/reagent/medicine/antihol,
-			/datum/reagent/medicine/stimulants,
-			/datum/reagent/medicine/inaprovaline
-		)
-	)
-
 /datum/species/vox/New()
 	. = ..()
 	// This is in new because "[HEAD_LAYER]" etc. is NOT a constant compile-time value. For some reason.
@@ -122,13 +102,6 @@
 		QDEL_NULL(tail_action)
 
 /datum/species/vox/handle_chemicals(datum/reagent/chem, mob/living/carbon/human/H)
-	if(allergic_to[chem.type]) //Is_type_in_typecache is BAD.
-		H.reagents.add_reagent(/datum/reagent/toxin/histamine, chem.metabolization_rate * 3)
-		if(prob(5))
-			to_chat(H, span_danger("[pick(allergy_reactions)]"))
-		else if(prob(5))
-			H.emote("clack")
-		return FALSE //Its a bit TOO mean to have the chems not work at all.
 	return ..()
 
 /datum/species/vox/get_item_offsets_for_dir(dir, hand)
