@@ -100,7 +100,8 @@
 	mob_spawn_list = list(
 		/mob/living/carbon/monkey = 10,
 		/mob/living/simple_animal/hostile/retaliate/chicken = 10,
-		/obj/effect/spawner/random/chicken/jungle/flock = 1
+		/obj/effect/spawner/random/chicken/jungle/flock = 1,
+		/mob/living/basic/tiris = 1,
 		)
 
 	feature_spawn_chance = 1.4

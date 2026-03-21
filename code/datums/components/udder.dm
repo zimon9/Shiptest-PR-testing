@@ -171,3 +171,58 @@
 		made_something = TRUE
 	if(made_something && on_generate_callback)
 		on_generate_callback.Invoke(reagents.total_volume, reagents.maximum_volume)
+
+/**
+ * # tiris vein subtype
+ *
+ * Used by tiris, and generates tiris blood.
+ */
+
+/datum/component/udder/tiris_vein
+
+/datum/component/udder/tiris_vein/Initialize(udder_type = /obj/item/udder, datum/callback/on_milk_callback, datum/callback/on_generate_callback, reagent_produced_typepath = /datum/reagent/consumable/tiris_blood)
+	if(!isliving(parent)) //technically is possible to drop this on carbons... but you wouldn't do that to me, would you?
+		return COMPONENT_INCOMPATIBLE
+	udder = new udder_type(null, parent, on_generate_callback, reagent_produced_typepath)
+	src.on_milk_callback = on_milk_callback
+
+/obj/item/udder/tiris_vein
+	name = "\proper major vein"
+	reagent_produced_typepath = /datum/reagent/consumable/tiris_blood
+	size = 100
+
+/obj/item/udder/tiris_vein/initial_conditions()
+	reagents.add_reagent(reagent_produced_typepath, 100)
+	START_PROCESSING(SSobj, src)
+
+/obj/item/udder/tiris_vein/milk(obj/item/reagent_containers/glass/milk_holder, mob/user)
+	if(milk_holder.reagents.total_volume >= milk_holder.volume)
+		to_chat(user, span_warning("[milk_holder] is full."))
+		return
+	var/transfered = reagents.trans_to(milk_holder, 5)
+	if(transfered)
+		user.visible_message(span_notice("[user] extract some blood from the [src] using \the [milk_holder]."), span_notice("You extract some blood from the [src] using \the [milk_holder]."))
+	else
+		to_chat(user, span_warning("The [src] is nearly entirely collapsed."))
+
+/datum/component/udder/tiris_vein/on_examine(datum/source, mob/user, list/examine_list)
+	var/mob/living/milked = parent
+	if(milked.stat != CONSCIOUS)
+		return
+
+	var/udder_filled_percentage = PERCENT(udder.reagents.total_volume / udder.reagents.maximum_volume)
+	switch(udder_filled_percentage)
+		if(0 to 10)
+			examine_list += span_notice("[parent]'s [udder] is nearly entirely collapsed.")
+		if(11 to 99)
+			examine_list += span_notice("[parent]'s [udder] can be tapped if you have something to extract it.")
+		if(100)
+			examine_list += span_notice("[parent]'s [udder] is bulging prominently, and can be tapped if you have something to extract it.")
+
+/datum/component/udder/tiris_vein/on_attackby(datum/source, obj/item/milking_tool, mob/user)
+	var/mob/living/milked = parent
+	if(milked.stat == CONSCIOUS && istype(milking_tool, /obj/item/reagent_containers/syringe))
+		udder.milk(milking_tool, user)
+		if(on_milk_callback)
+			on_milk_callback.Invoke(udder.reagents.total_volume, udder.reagents.maximum_volume)
+		return COMPONENT_NO_AFTERATTACK

@@ -109,7 +109,8 @@
 		/mob/living/simple_animal/chicken/rabbit = 1,
 		/mob/living/basic/mouse = 1,
 		/mob/living/basic/cow = 1,
-		/mob/living/simple_animal/deer = 1
+		/mob/living/simple_animal/deer = 1,
+		/mob/living/basic/tiris = 1,
 	)
 	mob_spawn_chance = 1
 

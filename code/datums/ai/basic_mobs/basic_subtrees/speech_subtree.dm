@@ -59,3 +59,9 @@
 /datum/ai_planning_subtree/random_speech/monkey
 	speech_chance = 1
 	emote_hear = list("chimpers.")
+
+/datum/ai_planning_subtree/random_speech/tiris
+	speech_chance = 1
+	speak = list("baaaa","bleat","bwaaagh")
+	emote_hear = list("bleats.", "baaas.", "bwaaaghs.")
+	emote_see = list("lowers their head to the ground and chews on something.", "trots")
