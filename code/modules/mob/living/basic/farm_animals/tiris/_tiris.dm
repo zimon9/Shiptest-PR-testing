@@ -1,6 +1,7 @@
 /mob/living/basic/tiris
 	name = "tiris"
 	desc = "A herd animal native to Teceti. A very light fur coat protects it from dust and heat, but utterly fails when put against the cold. Tiris are commonly brought up for their milk, blood, and meat."
+	icon = 'icons/mob/teceti/tiris.dmi'
 	icon_state = "tiris"
 	icon_living = "tiris"
 	icon_dead = "tiris_dead"
