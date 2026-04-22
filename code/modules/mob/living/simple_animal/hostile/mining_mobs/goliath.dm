@@ -59,7 +59,8 @@
 		pre_attack++
 	if(!pre_attack || stat || AIStatus == AI_IDLE)
 		return
-	icon_state = pre_attack_icon
+	if(icon_state != icon_dead)
+		icon_state = pre_attack_icon
 
 /mob/living/simple_animal/hostile/asteroid/goliath/revive(full_heal = FALSE, admin_revive = FALSE)//who the fuck anchors mobs
 	if(..())
@@ -85,7 +86,8 @@
 		visible_message(span_warning("[src] digs its tentacles under [target]!"))
 		new tentacle_type(tturf, src ,TRUE)
 		ranged_cooldown = world.time + ranged_cooldown_time
-		icon_state = icon_aggro
+		if(icon_state != icon_dead)
+			icon_state = icon_aggro
 		pre_attack = 0
 
 /mob/living/simple_animal/hostile/asteroid/goliath/Found(atom/A)
@@ -112,7 +114,7 @@
 /mob/living/simple_animal/hostile/asteroid/goliath/Aggro()
 	vision_range = aggro_vision_range
 	handle_preattack()
-	if(icon_state != icon_aggro)
+	if((icon_state != icon_aggro) && (icon_state != icon_dead))
 		icon_state = icon_aggro
 
 /mob/living/simple_animal/hostile/asteroid/goliath/pup
@@ -209,7 +211,8 @@
 		visible_message(span_warning("[src] digs it's tentacles under [target]!"))
 		new tentacle_type(tturf, src ,TRUE)
 		ranged_cooldown = world.time + ranged_cooldown_time
-		icon_state = icon_aggro
+		if(icon_state != icon_dead)
+			icon_state = icon_aggro
 		pre_attack = 0
 	else if(dist <= charge_range && can_charge)		//Screen range check, so you can't get charged offscreen
 		charge()
