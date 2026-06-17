@@ -389,6 +389,7 @@
 
 /obj/machinery/computer/security/telescreen/entertainment/Initialize()
 	. = ..()
+	network = list("IntraNet") //bypasses the parent init that tacks on the area pointer to the end of the network name, rendering players unable to see new cameras on the network.
 	RegisterSignal(src, COMSIG_CLICK, PROC_REF(BigClick))
 
 // Bypass clickchain to allow humans to use the telescreen from a distance
